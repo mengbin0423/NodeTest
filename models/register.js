@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
 const registerScheam = new mongoose.Schema({
+    email:{
+        type:String,
+        unique:true,
+        require:true
+    },
     username:{
         type:String,
-        require:true
     },
     password:{
-        type:Number,
-        require:true
+        type:String,
     },
-    confirmPassword:{
-        type:Number,
-        require:true
-    }
-},{collection:'register',versionKey:false})
+    
+},{collection:'test',versionKey:false})
 
 module.exports = mongoose.model('register',registerScheam)
