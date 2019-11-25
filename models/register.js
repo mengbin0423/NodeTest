@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
-const registerScheam = new mongoose.Schema({
+const registerSchema = new mongoose.Schema({
     email:{
         type:String,
         unique:true,
         require:true
+    },
+    phone:{
+        type:Number
     },
     username:{
         type:String,
@@ -15,4 +18,4 @@ const registerScheam = new mongoose.Schema({
     
 },{collection:'test',versionKey:false})
 
-module.exports = mongoose.model('register',registerScheam)
+module.exports = mongoose.model('register',registerSchema)

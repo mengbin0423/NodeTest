@@ -8,11 +8,5 @@ const registerRouter = require('./routers/router')
 
 app.use(cors());
 app.use(bodyParser());
-
-
-
 app.use(registerRouter.routes()).use(registerRouter.allowedMethods())
-
-
-
 app.listen(config.port)

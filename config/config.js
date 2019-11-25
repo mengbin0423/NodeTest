@@ -1,6 +1,6 @@
-const connfig = {
-    port:8080,
-    db:'mongoodb://localhost:27017/test'
+const config = {
+    port:3000,
+    db:'mongodb://localhost:27017/test'
 }
 
-module.exports = connfig
+module.exports = config

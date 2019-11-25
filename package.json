@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mengbin0423/NodeTest#readme",
   "dependencies": {
-    "koa": "^2.8.1",
+    "koa": "^2.10.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "koa2-cors": "^2.0.6",

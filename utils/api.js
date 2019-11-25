@@ -37,7 +37,7 @@ const post = async(ctx, next) =>{
 
 const register = async (ctx,next) => {
     
-    const req = await User.findOne({ email: ctx.request.body.email })   //model中的find()方法
+    const req = await User.findOne({ phone: ctx.request.body.phone })   //model中的find()方法
     const res = ctx.request.body
     if(req){
         ctx.body ={
@@ -49,8 +49,9 @@ const register = async (ctx,next) => {
     }else{
         const newUser = await User.create({
             email:res.email,
-            username:res.username,
-            password:res.password
+            username:res.name,
+            password:res.password,
+            phone:res.phone
           });
         if(newUser){
             ctx.body ={
@@ -74,14 +75,20 @@ const register = async (ctx,next) => {
 }
 
 const loginIn = async (ctx,next) =>{
-    const req = ctx.request.query;
-    const res = await User.findOne({username:req.username,password:req.password})
-    const pas = await User.findOne({})
+    ctx.status = 200
+    const req = ctx.request.body;
+    const res = await User.findOne({phone:req.phone,password:req.password})
     if(res){
         ctx.body = {
             msg:'登录成功！',
             code:0,
         }
+    }else{
+        ctx.body = {
+            msg:'登录失败！！',
+            code:-1,
+        } 
     }
+    next()
 }
 module.exports = {get,post,register,loginIn}
